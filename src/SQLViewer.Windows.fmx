@@ -1,0 +1,15 @@
+inherited DelphiBaserFrm_Windows: TDelphiBaserFrm_Windows
+  DesignerMasterStyle = 0
+  inherited CenterPanel: TPanel
+    inherited StringGridBindSourceDB: TStringGrid
+      Viewport.Width = 533.000000000000000000
+      Viewport.Height = 364.000000000000000000
+    end
+  end
+  inherited BottomPanel: TPanel
+    inherited EdModeLbl: TLabel
+      StyledSettings = [Family, Size, FontColor]
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+    end
+  end
+end

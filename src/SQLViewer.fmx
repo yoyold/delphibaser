@@ -1,0 +1,205 @@
+object DelphiBaserFrm: TDelphiBaserFrm
+  Left = 0
+  Top = 0
+  Caption = 'Delphibaser'
+  ClientHeight = 618
+  ClientWidth = 573
+  Position = Designed
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop, iPhone, iPad]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object TopPanel: TPanel
+    Align = Top
+    Size.Width = 573.000000000000000000
+    Size.Height = 57.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object TableNamesComboBox: TComboBox
+      Position.X = 197.000000000000000000
+      Position.Y = 23.000000000000000000
+      Size.Width = 193.000000000000000000
+      Size.Height = 32.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'comboboxstyle'
+      TabOrder = 0
+    end
+    object OpenDbFileSpBtn: TSpeedButton
+      Hint = 'Open Database File'
+      Position.X = 17.000000000000000000
+      Position.Y = 7.000000000000000000
+      Size.Width = 48.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'pagecurltoolbutton'
+      OnClick = OpenDbFileSpBtnClick
+    end
+    object SelectedDBLabel: TLabel
+      Position.X = 253.000000000000000000
+      Position.Y = 5.000000000000000000
+      Text = 'Selected Table: '
+      TabOrder = 2
+    end
+    object DriversComboBox: TComboBox
+      Anchors = [akTop, akRight]
+      Position.X = 440.000000000000000000
+      Position.Y = 24.000000000000000000
+      TabOrder = 3
+      OnChange = DriversComboBoxChange
+    end
+    object DriverLabel: TLabel
+      Position.X = 446.000000000000000000
+      Position.Y = 6.000000000000000000
+      Text = 'Driver:'
+      TabOrder = 4
+    end
+  end
+  object RightPanel: TPanel
+    Align = Right
+    Position.X = 553.000000000000000000
+    Position.Y = 57.000000000000000000
+    Size.Width = 20.000000000000000000
+    Size.Height = 413.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+  end
+  object LeftPanel: TPanel
+    Align = Left
+    Position.Y = 57.000000000000000000
+    Size.Width = 20.000000000000000000
+    Size.Height = 413.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+  end
+  object CenterPanel: TPanel
+    Align = Client
+    Size.Width = 533.000000000000000000
+    Size.Height = 413.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    object CenterInformationPanel: TPanel
+      Align = Top
+      Size.Width = 533.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object NavigatorBindSourceDB: TBindNavigator
+        Align = Client
+        Size.Width = 533.000000000000000000
+        Size.Height = 49.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        DataSource = BindSourceDB
+        VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbInsert, nbDelete, nbEdit, nbPost, nbCancel, nbRefresh, nbApplyUpdates, nbCancelUpdates]
+        xRadius = 4.000000000000000000
+        yRadius = 4.000000000000000000
+      end
+    end
+    object StringGridBindSourceDB: TStringGrid
+      Align = Client
+      CanFocus = True
+      ClipChildren = True
+      Size.Width = 533.000000000000000000
+      Size.Height = 364.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      Viewport.Width = 529.000000000000000000
+      Viewport.Height = 339.000000000000000000
+    end
+  end
+  object BottomPanel: TPanel
+    Align = Bottom
+    Position.Y = 470.000000000000000000
+    Size.Width = 573.000000000000000000
+    Size.Height = 148.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+    object EdModeSwitch: TSwitch
+      Anchors = [akRight, akBottom]
+      Hint = 'toggle database edit mode'
+      IsChecked = False
+      Position.X = 470.000000000000000000
+      Position.Y = 9.000000000000000000
+      TabOrder = 0
+      ParentShowHint = False
+      ShowHint = True
+      OnSwitch = EdModeSwitchSwitch
+    end
+    object EdModeLbl: TLabel
+      Position.X = 472.000000000000000000
+      Position.Y = 41.000000000000000000
+      Text = 'Read-only Mode'
+      TabOrder = 1
+    end
+    object CloseFrmBtn: TSpeedButton
+      Anchors = [akRight, akBottom]
+      ModalResult = 8
+      Position.X = 509.000000000000000000
+      Position.Y = 95.000000000000000000
+      Size.Width = 48.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'escapetoolbutton'
+      OnClick = CloseFrmBtnClick
+    end
+    object GoButton: TButton
+      Position.X = 24.000000000000000000
+      Position.Y = 24.000000000000000000
+      TabOrder = 4
+      Text = 'GoButton'
+      OnClick = GoButtonClick
+    end
+  end
+  object OpenDialog: TOpenDialog
+    Left = 204
+    Top = 300
+  end
+  object DBFDConnection: TFDConnection
+    Left = 436
+    Top = 548
+  end
+  object DBFDQuery: TFDQuery
+    Connection = DBFDConnection
+    Left = 348
+    Top = 556
+  end
+  object BindSourceDB: TBindSourceDB
+    DataSet = DBFDQuery
+    ScopeMappings = <>
+    Left = 136
+    Top = 416
+  end
+  object BindingsList: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 44
+    Top = 413
+    object LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource
+      Category = 'Schnelle Bindungen'
+      DataSource = BindSourceDB
+      GridControl = StringGridBindSourceDB
+      Columns = <>
+    end
+  end
+  object FDPhysSQLiteDriverLink: TFDPhysSQLiteDriverLink
+    Left = 92
+    Top = 133
+  end
+  object FDPhysMySQLDriverLink: TFDPhysMySQLDriverLink
+    Left = 84
+    Top = 205
+  end
+  object FDPhysFBDriverLink: TFDPhysFBDriverLink
+    Left = 84
+    Top = 265
+  end
+  object FDPhysMSAccessDriverLink: TFDPhysMSAccessDriverLink
+    Left = 92
+    Top = 329
+  end
+  object FDPhysPgDriverLink: TFDPhysPgDriverLink
+    Left = 220
+    Top = 129
+  end
+end

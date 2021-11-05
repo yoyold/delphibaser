@@ -1,0 +1,43 @@
+inherited DelphiBaserFrm_Surface: TDelphiBaserFrm_Surface
+  ClientHeight = 1920
+  ClientWidth = 1080
+  DesignerMasterStyle = 0
+  inherited TopPanel: TPanel
+    Size.Width = 1080.000000000000000000
+  end
+  inherited RightPanel: TPanel
+    Position.X = 1060.000000000000000000
+    Size.Height = 1724.000000000000000000
+  end
+  inherited LeftPanel: TPanel
+    Size.Height = 1724.000000000000000000
+  end
+  inherited CenterPanel: TPanel
+    Size.Width = 1040.000000000000000000
+    Size.Height = 1724.000000000000000000
+    inherited CenterInformationPanel: TPanel
+      Size.Width = 1040.000000000000000000
+      inherited NavigatorBindSourceDB: TBindNavigator
+        Size.Width = 1040.000000000000000000
+      end
+    end
+    inherited StringGridBindSourceDB: TStringGrid
+      Size.Width = 1040.000000000000000000
+      Size.Height = 1675.000000000000000000
+      Viewport.Width = 1040.000000000000000000
+      Viewport.Height = 1675.000000000000000000
+    end
+  end
+  inherited BottomPanel: TPanel
+    Position.Y = 1781.000000000000000000
+    Size.Width = 1080.000000000000000000
+    Size.Height = 139.000000000000000000
+    inherited EdModeLbl: TLabel
+      StyledSettings = [Family, Size, FontColor]
+      TextSettings.Font.StyleExt = {04040000000000000004000000}
+    end
+    inherited CloseFrmBtn: TSpeedButton
+      Position.Y = 86.000000000000000000
+    end
+  end
+end
